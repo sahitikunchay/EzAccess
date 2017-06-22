@@ -23,7 +23,7 @@ public class DefaultView extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        RequestAdapter ca = new RequestAdapter(createList(4));
+        RequestAdapter ca = new RequestAdapter(createList(2));
         recList.setAdapter(ca);
         int size = ca.getItemCount();
     }
@@ -53,14 +53,25 @@ public class DefaultView extends AppCompatActivity {
     private List<RequestInfo> createList(int size) {
 
         List<RequestInfo> result = new ArrayList<>();
-        for (int i=1; i <= size; i++) {
+        RequestInfo ci = new RequestInfo();
+        ci.requestID = RequestInfo.REQUEST_ID_PREFIX + " 250472";
+        ci.department = RequestInfo.DEPARTMENT_PREFIX + " DCS";
+        ci.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + " Susobhit P";
+        result.add(ci);
+        RequestInfo ci2 = new RequestInfo();
+        ci2.requestID = RequestInfo.REQUEST_ID_PREFIX + " 460426";
+        ci2.department = RequestInfo.DEPARTMENT_PREFIX + " PERF";
+        ci2.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + " Sushant B";
+        result.add(ci2);
+        /*for (int i=1; i <= size; i++) {
             RequestInfo ci = new RequestInfo();
-            ci.requestID = RequestInfo.REQUEST_ID_PREFIX + i;
-            ci.department = RequestInfo.DEPARTMENT_PREFIX + i;
-            ci.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + i;
+            if(i)
+            ci.requestID = RequestInfo.REQUEST_ID_PREFIX + " 250472";
+            ci.department = RequestInfo.DEPARTMENT_PREFIX + " DCS";
+            ci.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + " Susobhit P";
             result.add(ci);
 
-        }
+        }*/
 
         return result;
     }

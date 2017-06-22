@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 // Volley
                 String tag_json_obj = "json_obj_req";
 
-                String url = "http://01d4ae37.ngrok.io/getResource";
+                String url = "http://d08accc1.ngrok.io/getResource";
                 Log.d("Volley", "here");
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("request_platform", platform);
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onResponse(JSONObject response) {
-                                Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                                 Log.d("Volley", response.toString());
                                 try {
                                     eta = response.get("eta").toString();
@@ -275,9 +275,9 @@ public class MainActivity extends AppCompatActivity {
                     toSplash.putExtra("EMPLOYEE_ID", employeeID);
                     toSplash.putExtra("EMPLOYEE_NAME", employeeName);
                     startActivity(toSplash);
-                } else {
+                } /*else {
                     Toast.makeText(getBaseContext(), "Please fill the remaining fields", Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
 
         });

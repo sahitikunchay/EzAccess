@@ -41,7 +41,7 @@ public class MiddleSplash extends AppCompatActivity {
         }
 
 
-        assignedTo = employeeName+", ID: "+ employeeID;
+        assignedTo = employeeName+"\nID: "+ employeeID + "\nETA:" + eta +" Hrs";
         request_id = (new Random(34).nextInt())/99999+2017000;
 
         id.setText(String.valueOf(Math.abs(request_id)));
