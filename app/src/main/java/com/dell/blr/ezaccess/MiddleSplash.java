@@ -55,8 +55,10 @@ public class MiddleSplash extends AppCompatActivity {
         home.putExtra("ENV",env);
         home.putExtra("SEV",sev);
         home.putExtra("DOM",dom);
-        home.putExtra("ASSIGNED_TO",assignedTo);
+        home.putExtra("ASSIGNED_TO",employeeName);
         home.putExtra("REQUEST_ID",request_id);
+        home.putExtra("ETA",eta);
+
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override

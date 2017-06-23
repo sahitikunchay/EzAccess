@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultView extends AppCompatActivity {
+    String eta, employeeName,  platform;
+    int requestId;
+    List<RequestInfo> helloList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +26,25 @@ public class DefaultView extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        RequestAdapter ca = new RequestAdapter(createList(2));
+        helloList = createList(2);
+        RequestAdapter ca = new RequestAdapter(helloList);
         recList.setAdapter(ca);
         int size = ca.getItemCount();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            eta = extras.getString("ETA");
+            employeeName = extras.getString("ASSIGNED_TO");
+            requestId = extras.getInt("REQUEST_ID");
+            platform = extras.getString("PLATFORM");
+            RequestInfo ci2 = new RequestInfo();
+            ci2.requestID = RequestInfo.REQUEST_ID_PREFIX + requestId;
+            ci2.department = RequestInfo.DEPARTMENT_PREFIX + platform;
+            ci2.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + employeeName;
+            ci2.eta = RequestInfo.ETA_PREFIX + eta;
+            helloList.add(ci2);
+
+        }
     }
 
     @Override
@@ -57,11 +76,13 @@ public class DefaultView extends AppCompatActivity {
         ci.requestID = RequestInfo.REQUEST_ID_PREFIX + " 250472";
         ci.department = RequestInfo.DEPARTMENT_PREFIX + " DCS";
         ci.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + " Susobhit P";
+        ci.eta = RequestInfo.ETA_PREFIX + "12";
         result.add(ci);
         RequestInfo ci2 = new RequestInfo();
         ci2.requestID = RequestInfo.REQUEST_ID_PREFIX + " 460426";
         ci2.department = RequestInfo.DEPARTMENT_PREFIX + " PERF";
         ci2.assignedTo = RequestInfo.ASSIGNED_TO_PREFIX + " Sushant B";
+        ci2.eta = RequestInfo.ETA_PREFIX + "6";
         result.add(ci2);
         /*for (int i=1; i <= size; i++) {
             RequestInfo ci = new RequestInfo();

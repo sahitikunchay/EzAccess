@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ContactViewHolder> {
@@ -27,6 +30,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ContactV
         contactViewHolder.vDepartment.setText(ri.department);
         contactViewHolder.vAssignedTo.setText(ri.assignedTo);
         contactViewHolder.vTitle.setText("Request");
+        contactViewHolder.vETA.setText(ri.eta);
     }
 
     @Override
@@ -43,14 +47,17 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ContactV
         protected TextView vRequestID;
         protected TextView vDepartment;
         protected TextView vAssignedTo;
+        protected TextView vETA;
         protected TextView vTitle;
+
 
         public ContactViewHolder(View v) {
             super(v);
             vRequestID =  (TextView) v.findViewById(R.id.txtName);
             vDepartment = (TextView)  v.findViewById(R.id.txtSurname);
             vAssignedTo = (TextView)  v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);
+            vETA = (TextView) v.findViewById(R.id.txtAdd);
+            vTitle=(TextView) v.findViewById(R.id.title);
         }
     }
 }

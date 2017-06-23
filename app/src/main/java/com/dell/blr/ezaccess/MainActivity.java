@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 // Volley
                 String tag_json_obj = "json_obj_req";
 
-                String url = "http://d08accc1.ngrok.io/getResource";
+                String url = "http://934345f5.ngrok.io/getResource";
                 Log.d("Volley", "here");
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("request_platform", platform);
